@@ -1,0 +1,16 @@
+version: 0.2 
+ 
+phases: 
+  install: 
+    commands: 
+      - git config --global credential.helper '!aws codecommit credential-helper $@'
+      - git config --global credential.UseHttpPath true
+      - git clone <AWS Codecommit Repo>
+      - ls -la <Repo DirectoryName>/
+      - cd demo-ecs
+      - git config --global user.email "EMAIL"
+      - git config --global user.name "NAME" 
+      - git checkout  master
+      - git merge origin/<Develop Branch Name>
+      - git push  origin master
+
